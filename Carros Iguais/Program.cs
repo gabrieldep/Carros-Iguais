@@ -1,41 +1,44 @@
-﻿public class Program
+﻿namespace CarrosIguais
 {
-    public static void Main()
+    public class Program
     {
-        var solucao = SolutionSegundo(new string[] { "100", "110", "010", "011", "100" });
-        foreach (var item in solucao)
+        public static void Main()
         {
-            Console.WriteLine(item);
-        }
-    }
-
-    internal static int[] SolutionSegundo(string[] cars)
-    {
-        int[] arrInt = new int[cars.Length];
-        for (int i = 0; i < cars.Length; i++)
-        {
-            for (int j = i; j < cars.Length; j++)
+            var solucao = Solution(new string[] { "100", "110", "010", "011", "100" });
+            foreach (var item in solucao)
             {
-                if (i != j && IsEquals(cars[i], cars[j]))
-                {
-                    arrInt[i]++;
-                    arrInt[j]++;
-                }
+                Console.WriteLine(item);
             }
         }
-        return arrInt;
-    }
 
-    internal static bool IsEquals(string a, string b)
-    {
-        int diff = 0;
-        for (int i = 0; i < a.Length; i++)
+        internal static int[] Solution(string[] cars)
         {
-            if (a[i] != b[i])
-                diff++;
-            if (diff > 1)
-                return false;
+            int[] arrInt = new int[cars.Length];
+            for (int i = 0; i < cars.Length; i++)
+            {
+                for (int j = i; j < cars.Length; j++)
+                {
+                    if (i != j && IsEquals(cars[i], cars[j]))
+                    {
+                        arrInt[i]++;
+                        arrInt[j]++;
+                    }
+                }
+            }
+            return arrInt;
         }
-        return true;
+
+        internal static bool IsEquals(string a, string b)
+        {
+            int diff = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] != b[i])
+                    diff++;
+                if (diff > 1)
+                    return false;
+            }
+            return true;
+        }
     }
 }
