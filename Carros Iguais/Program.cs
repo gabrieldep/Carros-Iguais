@@ -6,25 +6,19 @@
         {
             var solucao = Solution(new string[] { "100", "110", "010", "011", "100" });
             foreach (var item in solucao)
-            {
                 Console.WriteLine(item);
-            }
         }
 
         internal static int[] Solution(string[] cars)
         {
             int[] arrInt = new int[cars.Length];
             for (int i = 0; i < cars.Length; i++)
-            {
-                for (int j = i; j < cars.Length; j++)
-                {
+                for (int j = i + 1; j < cars.Length; j++)
                     if (i != j && IsEquals(cars[i], cars[j]))
                     {
                         arrInt[i]++;
                         arrInt[j]++;
                     }
-                }
-            }
             return arrInt;
         }
 
