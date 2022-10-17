@@ -24,6 +24,9 @@
 
         internal static bool IsEquals(string a, string b)
         {
+            if (a.Equals(b))
+                return true;
+
             int diff = 0;
             for (int i = 0; i < a.Length; i++)
             {
